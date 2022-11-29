@@ -1,12 +1,31 @@
-import React from "react";
+import { motion } from "framer-motion";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import { CardContent } from "../../utils/data";
 
 function Cards() {
+  const scrollRef = useRef(null);
+  const variants = {
+    hide: {
+      opacity: 0,
+      y: "15%",
+    },
+    show: {
+      opacity: 1,
+      y: "0%",
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
   return (
     <Container>
       {CardContent.map((card) => (
-        <Card>
+        <Card
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}
+          variants={variants}
+        >
           <Image>
             <img src={card.img} alt="" />
           </Image>
@@ -31,7 +50,7 @@ const Container = styled.div`
   align-items: center;
   padding-bottom: 15%;
 `;
-const Card = styled.div`
+const Card = styled(motion.div)`
   width: 23%;
   height: auto;
 `;

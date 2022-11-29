@@ -1,12 +1,32 @@
-import React from "react";
+import { motion } from "framer-motion";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import { lastsection } from "../../utils/data";
 
 function LastSection() {
+  const scrollRef = useRef(null);
+  const leftVariants = {
+    hide: {
+      opacity: 0,
+      y: "15%",
+    },
+    show: {
+      opacity: 1,
+      y: "0%",
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
+
   return (
     <Container>
       {lastsection.map((item, i) => (
-        <Card>
+        <Card
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}
+          variants={leftVariants}
+        >
           <Left>
             <img src={item.img} alt="" />
           </Left>
@@ -32,11 +52,11 @@ const Container = styled.div`
   padding: 2% 5%;
   margin-bottom: 15%;
 `;
-const Card = styled.div`
+const Card = styled(motion.div)`
   width: 45%;
   height: 40vh;
   border-radius: 16px;
-  background: #F6F7FB;
+  background: #f6f7fb;
   display: flex;
   justify-content: flex-start;
   padding: 2%;

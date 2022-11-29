@@ -1,4 +1,5 @@
-import React from "react";
+import { motion } from "framer-motion";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import {
   activity,
@@ -40,10 +41,63 @@ function Hero2() {
     img2: group2,
     img3: group3,
   };
+  const scrollRef = useRef(null);
+  const leftVariants = {
+    hide: {
+      opacity: 0,
+      y: "15%",
+    },
+    show: {
+      opacity: 1,
+      y: "0%",
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
 
+  const right1Variants = {
+    hide: {
+      opacity: 0,
+      y: "-15%",
+    },
+    show: {
+      opacity: 1,
+      y: "0%",
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
+
+  const right2Variants = {
+    hide: {
+      opacity: 0,
+      x: "15%",
+    },
+    show: {
+      opacity: 1,
+      x: "0%",
+      transition: { delay: 2, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
+
+  const right3Variants = {
+    hide: {
+      opacity: 0,
+      y: "15%",
+    },
+    show: {
+      opacity: 1,
+      y: "0%",
+      transition: { delay: 3, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
   return (
     <Container>
-      <Left>
+      <Left
+        viewport={{ once: true }}
+        initial="hide"
+        whileInView="show"
+        ref={scrollRef}
+        variants={leftVariants}
+      >
         <h2>{data.h1}</h2>
         <p>{data.p}</p>
         <Flex>
@@ -58,22 +112,41 @@ function Hero2() {
         </Flex>
       </Left>
       <Right>
-        <div className="rt-card">
+        <motion.div
+          className="rt-card"
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}
+          variants={right1Variants}
+        >
           <img src={dataRt.img1} alt="" />
-        </div>
+        </motion.div>
 
-        <div className="rt-card-1">
+        <motion.div
+          className="rt-card-1"
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}
+          variants={right2Variants}
+        >
           <img src={dataRt.img2} alt="" />
-        </div>
+        </motion.div>
 
-        <div className="rt-card-2">
+        <motion.div className="rt-card-2" 
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}
+          variants={right3Variants} >
           <img src={dataRt.img3} alt="" />
-        </div>
+        </motion.div>
         <div className="dot">
-            <img src={dots} alt="" />
+          <img src={dots} alt="" />
         </div>
         <div className="dot1">
-            <img src={dots} alt="" />
+          <img src={dots} alt="" />
         </div>
       </Right>
     </Container>
@@ -89,7 +162,7 @@ const Container = styled.div`
   padding: 2% 5%;
   padding-bottom: 15%;
 `;
-const Left = styled.div`
+const Left = styled(motion.div)`
   width: 50%;
   height: 100vh;
   h2 {
@@ -120,7 +193,7 @@ const Right = styled.div`
     width: 55%;
     height: 30vh;
     margin-left: 15%;
-    z-index:999990;
+    z-index: 999990;
     background: white;
     img {
       width: 100%;
@@ -168,7 +241,7 @@ const Right = styled.div`
     top: 10%;
     left: 5%;
     position: absolute;
-    z-index:0;
+    z-index: 0;
     img {
       width: 100%;
       height: 100%;

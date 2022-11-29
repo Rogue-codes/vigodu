@@ -1,13 +1,33 @@
-import React from "react";
+import { motion } from "framer-motion";
+import React, { useRef } from "react";
 import styled from "styled-components";
 
 function HowToUse() {
+  const scrollRef = useRef(null);
   const data = {
     h1: "How to use Vigodu to create a video conference?",
     p: "Here’s an easy wat to use this platform to do video conferencing",
   };
+
+  const variants = {
+    hide: {
+      opacity: 0,
+      y: "15%",
+    },
+    show: {
+      opacity: 1,
+      y: "0%",
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
   return (
-    <Container>
+    <Container
+      viewport={{ once: true }}
+      initial="hide"
+      whileInView="show"
+      ref={scrollRef}
+      variants={variants}
+    >
       <h2>{data.h1}</h2>
       <br />
       <p>{data.p}</p>
@@ -16,7 +36,7 @@ function HowToUse() {
 }
 
 export default HowToUse;
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 100%;
   min-height: auto;
   padding: 5% 0%;

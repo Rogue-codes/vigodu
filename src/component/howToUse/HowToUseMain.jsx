@@ -1,28 +1,100 @@
-import React from "react";
+import { motion } from "framer-motion";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import { dots, howto1, howto2, howto3 } from "../../assets";
 import Button from "../../widgets/button/Button";
 
 function HowToUseMain() {
+  const scrollRef = useRef(null);
   const data = {
     h1: "Open the URL address, then type “vigodu.com”",
     p: "Open the browser that you each have, then type “vigodu.com” to proceed to the next step, which is logging account.",
     btnContent: "LEARN MORE",
   };
+
+  const rightVariants = {
+    hide: {
+      opacity: 0,
+      x: "15%",
+    },
+    show: {
+      opacity: 1,
+      x: "0%",
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
+
+  const right1Variants = {
+    hide: {
+      opacity: 0,
+      y: "-15%",
+    },
+    show: {
+      opacity: 1,
+      y: "0%",
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
+
+  const right2Variants = {
+    hide: {
+      opacity: 0,
+      x: "15%",
+    },
+    show: {
+      opacity: 1,
+      x: "0%",
+      transition: { delay: 2, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
+
+  const right3Variants = {
+    hide: {
+      opacity: 0,
+      y: "15%",
+    },
+    show: {
+      opacity: 1,
+      y: "0%",
+      transition: { delay: 3, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
+
   return (
     <Container>
       <Left>
-        <div className="cards">
+        <motion.div
+          className="cards"
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}
+          variants={right1Variants}
+        >
           <img src={howto1} alt="" />
-        </div>
+        </motion.div>
 
-        <div className="cards1">
+        <motion.div
+          className="cards1"
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}
+          variants={right2Variants}
+        >
           <img src={howto2} alt="" />
-        </div>
+        </motion.div>
 
-        <div className="cards2">
+        <motion.div
+          className="cards2"
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}
+          variants={right3Variants}
+        >
           <img src={howto3} alt="" />
-        </div>
+        </motion.div>
 
         <div className="dot">
           <img src={dots} alt="" />
@@ -32,7 +104,13 @@ function HowToUseMain() {
           <img src={dots} alt="" />
         </div>
       </Left>
-      <Right>
+      <Right
+        viewport={{ once: true }}
+        initial="hide"
+        whileInView="show"
+        ref={scrollRef}
+        variants={rightVariants}
+      >
         <h2>{data.h1}</h2>
         <p>{data.p}</p>
         <Button content={data.btnContent} />
@@ -132,7 +210,7 @@ const Left = styled.div`
     }
   }
 `;
-const Right = styled.div`
+const Right = styled(motion.div)`
   width: 50%;
   height: 100vh;
   padding-left: 2%;

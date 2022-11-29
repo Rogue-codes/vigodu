@@ -1,13 +1,31 @@
-import React from "react";
+import { motion } from "framer-motion";
+import React, { useRef } from "react";
 import styled from "styled-components";
 
 function Advantages() {
+  const scrollRef = useRef(null);
   const data = {
     title: "What advantages of using Vigodu?",
     desc: "This video conferencing platform has advantages that most other platform do not have, This is intended so that users remain comfortable when using this application.",
   };
+
+  const variants = {
+    hide: {
+      opacity: 0,
+    },
+    show: {
+      opacity: 1,
+      transition: { delay: 2, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
   return (
-    <Container>
+    <Container
+      viewport={{ once: true }}
+      initial="hide"
+      whileInView="show"
+      ref={scrollRef}
+      variants={variants}
+    >
       <h2>{data.title}</h2>
       <p>{data.desc}</p>
     </Container>
@@ -15,7 +33,7 @@ function Advantages() {
 }
 
 export default Advantages;
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 100%;
   height: 40vh;
   display: flex;

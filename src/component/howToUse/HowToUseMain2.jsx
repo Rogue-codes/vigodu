@@ -1,34 +1,119 @@
-import React from "react";
+import { motion } from "framer-motion";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import { dots, howto22, howto23 } from "../../assets";
 import Button from "../../widgets/button/Button";
 
 function HowToUseMain2() {
+  const scrollRef = useRef(null);
   const data = {
     h1: "Choose play to start video conferencing",
     p: "Completing the login process you can click “get started” then select “play” to do video conferencing then the process at this stage is complete.",
     btnContent: "LEARN MORE",
   };
+
+  const leftVariants = {
+    hide: {
+      opacity: 0,
+      y: "15%",
+    },
+    show: {
+      opacity: 1,
+      y: "0%",
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
+
+  const right1Variants = {
+    hide: {
+      opacity: 0,
+      x: "-15%",
+    },
+    show: {
+      opacity: 1,
+      x: "0%",
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
+
+  const right2Variants = {
+    hide: {
+      opacity: 0,
+      x: "15%",
+    },
+    show: {
+      opacity: 1,
+      x: "0%",
+      transition: { delay: 2, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
+
+  const circleVariants = {
+    hide: {
+      opacity: 0,
+      scale: 0.5,
+    },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: { delay: 3, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
+
   return (
     <Container>
-      <Left>
+      <Left
+        viewport={{ once: true }}
+        initial="hide"
+        whileInView="show"
+        ref={scrollRef}
+        variants={leftVariants}
+      >
         <h2>{data.h1}</h2>
         <p>{data.p}</p>
         <Button content={data.btnContent} />
       </Left>
       <Right>
-        <div className="card1">
+        <motion.div
+          className="card1"
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}
+          variants={right1Variants}
+        >
           <img src={howto22} alt="" />
-        </div>
-        <div className="card2">
+        </motion.div>
+        <motion.div
+          className="card2"
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}
+          variants={right2Variants}
+        >
           <img src={howto23} alt="" />
-        </div>
-        <div className="circle">
+        </motion.div>
+        <motion.div
+          className="circle"
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}
+          variants={circleVariants}
+        >
           <p>P</p>
-        </div>
-        <div className="circle2">
+        </motion.div>
+        <motion.div
+          className="circle2"
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}
+          variants={circleVariants}
+        >
           <p>L</p>
-        </div>
+        </motion.div>
         <div className="dot">
           <img src={dots} alt="" />
         </div>
@@ -47,7 +132,7 @@ const Container = styled.div`
   /* align-items: center; */
 `;
 
-const Left = styled.div`
+const Left = styled(motion.div)`
   width: 50%;
   height: 100vh;
   h2 {

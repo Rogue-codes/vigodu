@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import {
   AiFillFacebook,
   AiFillTwitterCircle,
   AiFillInstagram,
 } from "react-icons/ai";
+import { motion } from "framer-motion";
 function Footer() {
   const data = {
     h2: "Vigodu.",
@@ -17,9 +18,28 @@ function Footer() {
   const Contact = ["Contact", "Social Media", "Location", "Careers"];
 
   const Documentation = ["Documentation", "Question", "Media"];
+
+  const scrollRef = useRef(null);
+  const leftVariants = {
+    hide: {
+      opacity: 0,
+      y: "15%",
+    },
+    show: {
+      opacity: 1,
+      y: "0%",
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
   return (
     <Container>
-      <Left>
+      <Left
+        viewport={{ once: true }}
+        initial="hide"
+        whileInView="show"
+        ref={scrollRef}
+        variants={leftVariants}
+      >
         <h2>{data.h2}</h2>
         <p>{data.p}</p>
         <div className="icons">
@@ -29,27 +49,51 @@ function Footer() {
         </div>
       </Left>
       <Right>
-        <ul>
+        <motion.ul
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}
+          variants={leftVariants}
+        >
           {Home.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
-        </ul>
+        </motion.ul>
 
-        <ul>
+        <motion.ul
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}
+          variants={leftVariants}
+        >
           {Contact.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
-        </ul>
-        <ul>
+        </motion.ul>
+        <motion.ul
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}
+          variants={leftVariants}
+        >
           {Documentation.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
-        </ul>
-        <ul>
+        </motion.ul>
+        <motion.ul
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}
+          variants={leftVariants}
+        >
           {TermCondition.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
-        </ul>
+        </motion.ul>
       </Right>
     </Container>
   );
@@ -64,7 +108,7 @@ const Container = styled.footer`
   justify-content: center;
   padding: 9%;
 `;
-const Left = styled.div`
+const Left = styled(motion.div)`
   width: 30%;
   height: 100%;
   h2 {
