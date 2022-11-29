@@ -28,6 +28,7 @@ import howto23 from "./howto23.png";
 import mask1 from "./mask1.png";
 import mask2 from "./mask2.png";
 import dots from "./dots.png";
+import polygon from "./polygon.png";
 
 export {
   earth,
@@ -60,4 +61,5 @@ export {
   mask1,
   mask2,
   dots,
+  polygon
 };

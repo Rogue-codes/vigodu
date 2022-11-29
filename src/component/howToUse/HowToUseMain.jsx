@@ -121,6 +121,10 @@ function HowToUseMain() {
 
 export default HowToUseMain;
 const Container = styled.div`
+  @media (max-width: 768px) {
+    flex-direction: column;
+    min-height: auto;
+  }
   width: 90%;
   min-height: 100vh;
   margin: 0 auto;
@@ -129,6 +133,9 @@ const Container = styled.div`
   align-items: center;
 `;
 const Left = styled.div`
+  @media (max-width: 768px) {
+    width: 100%;
+  }
   width: 50%;
   height: 100vh;
   position: relative;
@@ -211,10 +218,18 @@ const Left = styled.div`
   }
 `;
 const Right = styled(motion.div)`
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
   width: 50%;
   height: 100vh;
   padding-left: 2%;
   h2 {
+    @media (max-width: 768px) {
+      width: 100%;
+      font-size: 1.5rem;
+    }
     font-family: "Inter";
     font-style: normal;
     font-weight: 600;
@@ -225,6 +240,10 @@ const Right = styled(motion.div)`
     color: #183b56;
   }
   p {
+    @media (max-width: 768px) {
+      width: 100%;
+      font-size: 1rem;
+    }
     font-family: "Inter";
     font-style: normal;
     width: 70%;

@@ -134,12 +134,14 @@ function Hero2() {
           <img src={dataRt.img2} alt="" />
         </motion.div>
 
-        <motion.div className="rt-card-2" 
+        <motion.div
+          className="rt-card-2"
           viewport={{ once: true }}
           initial="hide"
           whileInView="show"
           ref={scrollRef}
-          variants={right3Variants} >
+          variants={right3Variants}
+        >
           <img src={dataRt.img3} alt="" />
         </motion.div>
         <div className="dot">
@@ -155,6 +157,9 @@ function Hero2() {
 
 export default Hero2;
 const Container = styled.div`
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
   width: 100%;
   min-height: 100vh;
   background: #f5f6fa;
@@ -163,9 +168,17 @@ const Container = styled.div`
   padding-bottom: 15%;
 `;
 const Left = styled(motion.div)`
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15%;
+  }
   width: 50%;
   height: 100vh;
   h2 {
+    @media (max-width: 768px) {
+      width: 100%;
+    }
     font-family: "Inter";
     font-style: normal;
     font-weight: 700;
@@ -175,6 +188,9 @@ const Left = styled(motion.div)`
     color: #183b56;
   }
   p {
+    @media (max-width: 768px) {
+      width: 100%;
+    }
     font-family: "Inter";
     font-style: normal;
     font-weight: 500;
@@ -186,10 +202,17 @@ const Left = styled(motion.div)`
   }
 `;
 const Right = styled.div`
+  @media (max-width: 768px) {
+    width: 100%;
+  }
   width: 50%;
   height: auto;
   position: relative;
   .rt-card {
+    @media (max-width: 768px) {
+      width: 100%;
+      margin-left: 0%;
+    }
     width: 55%;
     height: 30vh;
     margin-left: 15%;
@@ -203,6 +226,10 @@ const Right = styled.div`
   }
 
   .rt-card-1 {
+    @media (max-width: 768px) {
+      width: 100%;
+      margin-left: 0%;
+    }
     width: 55%;
     height: 30vh;
     margin-top: 10%;
@@ -214,6 +241,10 @@ const Right = styled.div`
     }
   }
   .rt-card-2 {
+    @media (max-width: 768px) {
+      width: 100%;
+      margin-left: 0%;
+    }
     width: 55%;
     height: 30vh;
     margin-top: 10%;

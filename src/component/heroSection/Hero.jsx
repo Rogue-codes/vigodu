@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
-import { earth, heroImg1, heroImg2, heroImg3, play } from "../../assets";
+import { earth, heroImg1, heroImg2, heroImg3, polygon } from "../../assets";
 import Button from "../../widgets/button/Button";
 
 function Hero() {
@@ -60,7 +60,7 @@ function Hero() {
             <Button content="Get Started" />
             <PlayDemo>
               <div className="image">
-                <img src={play} alt="" />
+                <img src={polygon} alt="" />
               </div>
               <p>PLAY DEMO</p>
             </PlayDemo>
@@ -95,6 +95,14 @@ const Container = styled.div`
   padding-bottom: 15%;
 `;
 const FlexBox = styled.div`
+  @media (max-width: 768px) {
+    margin-top: 15%;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 0%;
+    padding: 5%;
+    height: auto;
+  }
   width: 95%;
   padding: 0% 15%;
   height: 100vh;
@@ -104,9 +112,18 @@ const FlexBox = styled.div`
   padding-left: 7%;
 `;
 const Left = styled(motion.div)`
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-top: 5%;
+  }
   width: 48%;
   height: 100%;
   p {
+    @media (max-width: 768px) {
+      width: 100%;
+      font-size: 1.6rem;
+      line-height: 44px;
+    }
     font-family: "Inter";
     font-style: normal;
     font-weight: 600;
@@ -117,6 +134,11 @@ const Left = styled(motion.div)`
     color: #50b6b4;
   }
   h2 {
+    @media (max-width: 768px) {
+      width: 100%;
+      font-size: 1.2rem;
+      line-height: 44px;
+    }
     font-family: "Inter";
     font-style: normal;
     font-weight: 600;
@@ -126,6 +148,11 @@ const Left = styled(motion.div)`
     color: #ffffff;
   }
   span {
+    @media (max-width: 768px) {
+      width: 100%;
+      font-size: 1rem;
+      line-height: 14px;
+    }
     font-family: "Inter";
     font-style: normal;
     font-weight: 500;
@@ -135,10 +162,20 @@ const Left = styled(motion.div)`
   }
 `;
 const Right = styled.div`
+  @media (max-width: 768px) {
+    margin-top: 15%;
+    width: 100%;
+    line-height: 44px;
+  }
   width: 48%;
   height: 100%;
 `;
 const ButtonContainer = styled.div`
+  @media (max-width: 768px) {
+    margin-top: 5%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
   width: 100%;
   margin-top: 25%;
   display: flex;
@@ -147,6 +184,10 @@ const ButtonContainer = styled.div`
   gap: 5%;
 `;
 const PlayDemo = styled.div`
+  @media (max-width: 768px) {
+    width: 50%;
+    margin-top: 5%;
+  }
   display: flex;
   justify-content: flex-start;
   gap: 10%;
@@ -154,8 +195,8 @@ const PlayDemo = styled.div`
   align-items: center;
   width: 40%;
   .image {
-    height: 20px;
-    width: 20px;
+    height: 40px;
+    width: 60px;
     border-radius: 50%;
     padding: 1%;
     background: #00cc8f;

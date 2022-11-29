@@ -124,6 +124,12 @@ function HowToUseMain2() {
 
 export default HowToUseMain2;
 const Container = styled.div`
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-top: 15%;
+    margin-bottom: 5%;
+    min-height: auto;
+  }
   width: 90%;
   min-height: 100vh;
   margin: 0 auto;
@@ -133,9 +139,16 @@ const Container = styled.div`
 `;
 
 const Left = styled(motion.div)`
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
   width: 50%;
   height: 100vh;
   h2 {
+    @media (max-width: 768px) {
+      width: 100%;
+    }
     font-family: "Inter";
     font-style: normal;
     font-weight: 600;
@@ -146,6 +159,9 @@ const Left = styled(motion.div)`
     color: #183b56;
   }
   p {
+    @media (max-width: 768px) {
+      width: 100%;
+    }
     font-family: "Inter";
     font-style: normal;
     font-weight: 500;
@@ -158,6 +174,11 @@ const Left = styled(motion.div)`
   }
 `;
 const Right = styled.div`
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-top: 15%;
+    height: 60vh;
+  }
   width: 50%;
   height: auto;
   position: relative;
@@ -179,6 +200,9 @@ const Right = styled.div`
     }
   }
   .card2 {
+    @media (max-width: 768px) {
+        height: 40vh;
+    }
     width: 70%;
     height: 60vh;
     position: absolute;
@@ -195,6 +219,10 @@ const Right = styled.div`
     }
   }
   .circle {
+    @media (max-width: 768px) {
+      left: 10%;
+      margin-top: 25%;
+    }
     background: #52bbb9;
     width: 48px;
     height: 48px;

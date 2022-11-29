@@ -5,15 +5,15 @@ import { partners } from "../../utils/data";
 
 function Partners() {
   const scrollRef = useRef(null);
-  const variants={
-    hide:{
-        opacity:0
+  const variants = {
+    hide: {
+      opacity: 0,
     },
-    show:{
-        opacity:1,
-        transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
-    }
-  }
+    show: {
+      opacity: 1,
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
   return (
     <Container
       viewport={{ once: true }}
@@ -33,6 +33,9 @@ function Partners() {
 
 export default Partners;
 const Container = styled(motion.div)`
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
   width: 100%;
   height: auto;
   display: flex;
@@ -41,6 +44,9 @@ const Container = styled(motion.div)`
   align-items: center;
 `;
 const Card = styled.div`
+  @media (max-width: 768px) {
+    width: 35%;
+  }
   width: 18%;
   height: 10vh;
   img {

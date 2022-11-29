@@ -34,6 +34,10 @@ function Advantages() {
 
 export default Advantages;
 const Container = styled(motion.div)`
+@media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+}
   width: 100%;
   height: 40vh;
   display: flex;
@@ -41,6 +45,11 @@ const Container = styled(motion.div)`
   align-items: center;
   padding: 5% 9%;
   p {
+    @media (max-width: 768px) {
+        width: 100%;
+        font-size: 1.3rem;
+        line-height: 44px;
+    }
     width: 45%;
     font-family: "Inter";
     font-style: normal;
@@ -51,6 +60,11 @@ const Container = styled(motion.div)`
     color: #7e909f;
   }
   h2 {
+    @media (max-width: 768px) {
+        width: 100%;
+        font-size: 2rem;
+        /* line-height: 44px; */
+    }
     width: 45%;
     font-size: 3vw;
     font-family: "Inter";

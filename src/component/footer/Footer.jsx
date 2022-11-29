@@ -101,6 +101,9 @@ function Footer() {
 
 export default Footer;
 const Container = styled.footer`
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
   width: 100%;
   height: 70vh;
   background: #242a2d;
@@ -109,6 +112,9 @@ const Container = styled.footer`
   padding: 9%;
 `;
 const Left = styled(motion.div)`
+  @media (max-width: 768px) {
+    width: 100%;
+  }
   width: 30%;
   height: 100%;
   h2 {
@@ -138,6 +144,9 @@ const Left = styled(motion.div)`
   }
 `;
 const Right = styled.div`
+  @media (max-width: 768px) {
+    width: 100%;
+  }
   width: 70%;
   height: 100%;
   display: flex;
@@ -147,6 +156,9 @@ const Right = styled.div`
     width: 30%;
     list-style-type: none;
     li {
+      @media (max-width: 768px) {
+        font-size: .8rem;
+      }
       font-family: "Inter";
       font-style: normal;
       font-weight: 500;

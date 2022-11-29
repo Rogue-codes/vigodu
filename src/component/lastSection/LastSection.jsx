@@ -43,6 +43,9 @@ function LastSection() {
 export default LastSection;
 
 const Container = styled.div`
+@media (max-width: 768px) {
+    flex-direction: column;
+}
   width: 100%;
   height: 50vh;
   display: flex;
@@ -53,6 +56,9 @@ const Container = styled.div`
   margin-bottom: 15%;
 `;
 const Card = styled(motion.div)`
+@media (max-width: 768px) {
+    width: 100%;
+}
   width: 45%;
   height: 40vh;
   border-radius: 16px;
@@ -76,6 +82,9 @@ const Right = styled.div`
   width: 80%;
   height: auto;
   h2 {
+    @media (max-width: 768px) {
+    font-size: 1.1rem;
+}
     font-family: "Inter";
     font-style: normal;
     font-weight: 600;
@@ -85,6 +94,10 @@ const Right = styled.div`
     color: #000000;
   }
   p {
+    @media (max-width: 768px) {
+    font-size: 1rem;
+    width: 100%;
+}
     font-family: "Inter";
     font-style: normal;
     font-weight: 500;

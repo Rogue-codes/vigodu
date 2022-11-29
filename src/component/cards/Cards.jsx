@@ -42,6 +42,10 @@ function Cards() {
 export default Cards;
 
 const Container = styled.div`
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-top: 15%;
+  }
   width: 90%;
   min-height: 70vh;
   margin: 0 auto;
@@ -51,6 +55,9 @@ const Container = styled.div`
   padding-bottom: 15%;
 `;
 const Card = styled(motion.div)`
+  @media (max-width: 768px) {
+    width: 100%;
+  }
   width: 23%;
   height: auto;
 `;
@@ -67,6 +74,9 @@ const Text = styled.div`
   width: 100%;
   height: 20vh;
   h2 {
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
     font-family: "Inter";
     font-style: normal;
     font-weight: 600;

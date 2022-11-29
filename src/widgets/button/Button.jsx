@@ -9,6 +9,10 @@ function Button({content}) {
 
 export default Button
 const Container = styled.button`
+    @media (max-width: 768px) {
+    width: 60%;
+    height: 7vh;
+}
     width: 40%;
     font-size: 20px;
     cursor: pointer;

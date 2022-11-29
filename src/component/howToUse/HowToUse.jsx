@@ -37,6 +37,9 @@ function HowToUse() {
 
 export default HowToUse;
 const Container = styled(motion.div)`
+@media (max-width: 768px) {
+    padding: 2%;
+}
   width: 100%;
   min-height: auto;
   padding: 5% 0%;
@@ -45,6 +48,10 @@ const Container = styled(motion.div)`
   justify-content: center;
   align-items: center;
   h2 {
+    @media (max-width: 768px) {
+        font-size: 2rem;
+        width: 100%;
+    }
     font-family: "Inter";
     font-style: normal;
     font-weight: 700;
@@ -56,6 +63,12 @@ const Container = styled(motion.div)`
     color: #183b56;
   }
   p {
+    @media (max-width: 768px) {
+        font-size: 1.2rem;
+        width: 100%;
+        line-height: 40px;
+        text-align: center;
+    }
     font-family: "Inter";
     font-style: normal;
     font-weight: 500;
