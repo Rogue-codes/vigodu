@@ -228,7 +228,7 @@ const Top = styled(motion.div)`
 `;
 const Bottom = styled.div`
   @media (max-width: 768px) {
-    margin-top: 2%;
+    margin-top: -4%;
   }
   width: 100%;
   height: 50%;
