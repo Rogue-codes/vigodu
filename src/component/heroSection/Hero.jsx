@@ -195,8 +195,12 @@ const PlayDemo = styled.div`
   align-items: center;
   width: 40%;
   .image {
+    @media (max-width: 768px) {
+      height: 40px;
+      width: 60px;
+    }
     height: 40px;
-    width: 60px;
+    width: 40px;
     border-radius: 50%;
     padding: 1%;
     background: #00cc8f;
