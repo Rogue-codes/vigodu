@@ -185,7 +185,7 @@ const ButtonContainer = styled.div`
 `;
 const PlayDemo = styled.div`
   @media (max-width: 768px) {
-    width: 50%;
+    width: 80%;
     margin-top: 5%;
   }
   display: flex;
